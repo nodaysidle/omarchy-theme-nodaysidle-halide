@@ -39,7 +39,6 @@ omarchy-theme-nodaysidle-halide/
 │   └── nodaysidle-halide
 ├── btop.theme
 ├── colors.toml
-├── foot.ini
 ├── ghostty.conf
 ├── gtk.css
 ├── gtk3.css
@@ -51,6 +50,12 @@ omarchy-theme-nodaysidle-halide/
 ├── shell.toml
 └── uninstall
 ```
+
+## Terminal Environment: Ghostty & Herdr
+
+Halide is strictly configured for a **Ghostty** + **Herdr** workflow:
+- **Ghostty**: Directly configured via `ghostty.conf` with `#0B0C0D` background, `#E6E8E6` paper foreground, `#A9E34B` lime block cursor, and custom ANSI palette.
+- **Herdr**: Inherits Halide's live palette via `theme = "Omarchy"` (GPUI) and `theme.name = "terminal"` (TUI multiplexer), syncing active session telemetry seamlessly.
 
 ## Installation & Activation
 
