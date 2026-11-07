@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+# nodaysidle Halide — Omarchy Theme Hook
+# Installed to ~/.config/omarchy/hooks/theme-set.d/nodaysidle-halide
+#
+# Manages GTK styling imports and theme lifecycle.
+
+set -euo pipefail
+
+THEME="${1:-}"
+
+THEME_DIR="$HOME/.config/omarchy/themes/nodaysidle-halide"
+if [[ ! -d "$THEME_DIR" && -d "$HOME/dev/nodaysidle/omarchy-theme-nodaysidle-halide" ]]; then
+  THEME_DIR="$HOME/dev/nodaysidle/omarchy-theme-nodaysidle-halide"
+fi
+
+GTK4_CSS="$HOME/.config/gtk-4.0/gtk.css"
+GTK3_CSS="$HOME/.config/gtk-3.0/gtk.css"
+SHIM4='@import url("../omarchy/current/theme/gtk.css");'
+SHIM3='@import url("../omarchy/current/theme/gtk3.css");'
+
+add_import() {
+  local file=$1 line=$2 tmp
+  mkdir -p "$(dirname "$file")"
+
+  if [[ ! -f $file ]]; then
+    printf '%s\n' "$line" >"$file"
+    return 0
+  fi
+
+  grep -qxF "$line" "$file" && return 0
+
+  tmp="$file.nodaysidle-halide.$$"
+  { printf '%s\n' "$line"; cat "$file"; } >"$tmp"
+  mv "$tmp" "$file"
+}
+
+remove_import() {
+  local file=$1 line=$2 tmp
+  [[ -f $file ]] || return 0
+  grep -qxF "$line" "$file" || return 0
+
+  tmp="$file.nodaysidle-halide.$$"
+  grep -vxF "$line" "$file" >"$tmp" || true
+  if [[ -s $tmp ]]; then
+    mv "$tmp" "$file"
+  else
+    rm -f "$tmp" "$file"
+  fi
+}
+
+apply_assets() {
+  [[ -d $THEME_DIR ]] || return 0
+  add_import "$GTK4_CSS" "$SHIM4"
+  [[ -f $THEME_DIR/gtk3.css ]] && add_import "$GTK3_CSS" "$SHIM3"
+}
+
+revert_assets() {
+  remove_import "$GTK4_CSS" "$SHIM4"
+  remove_import "$GTK3_CSS" "$SHIM3"
+}
+
+if [[ $THEME == "nodaysidle-halide" ]]; then
+  apply_assets
+else
+  revert_assets
+fi

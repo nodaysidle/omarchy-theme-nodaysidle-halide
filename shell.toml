@@ -1,0 +1,92 @@
+# Omarchy Shell Surfaces — nodaysidle Halide
+# Film strip bar: 22px, flat, hard rule, numeric workspaces, monospace clock.
+
+[bar]
+background       = "#0B0C0D"
+background-alpha = 1.0
+text             = "#9BA3A5"
+active           = "#A9E34B"
+scale-with-font  = true
+size-horizontal  = 22
+size-vertical    = 22
+border-color     = "#1E2224"
+border-width     = 1
+
+[hyprland]
+active-border            = "#C6CED1"
+active-border-foreground = "#A9E34B"
+
+[controls]
+normal-color        = "#5F6668"
+normal-fill-alpha   = 0.04
+normal-border       = "#1E2224"
+normal-border-width = 1
+normal-border-alpha = 1.0
+
+hover-cursor-color        = "#C6CED1"
+hover-cursor-fill-alpha   = 0.10
+hover-cursor-border       = "#C6CED1"
+hover-cursor-border-width = 1
+hover-cursor-border-alpha = 1.0
+
+focus-color        = "#A9E34B"
+focus-fill-alpha   = 0.10
+focus-border       = "#A9E34B"
+focus-border-width = 1
+focus-border-alpha = 1.0
+
+selected-color        = "#A9E34B"
+selected-fill-alpha   = 0.16
+selected-border       = "#A9E34B"
+selected-border-width = 1
+selected-border-alpha = 1.0
+
+pressed-fill-alpha   = 0.26
+selection-fill-alpha = 0.36
+
+[font]
+base-size = 10
+
+[popups]
+background       = "#060708"
+background-alpha = 1.0
+text             = "#E6E8E6"
+border           = "#1E2224"
+border-alpha     = 1.0
+
+[tooltip]
+background       = "#060708"
+background-alpha = 1.0
+text             = "#E6E8E6"
+border           = "#1E2224"
+border-alpha     = 1.0
+
+[notifications]
+background       = "#060708"
+background-alpha = 1.0
+text             = "#E6E8E6"
+border           = "#1E2224"
+border-alpha     = 1.0
+urgency-low      = "#5F6668"
+urgency-normal   = "#A9E34B"
+urgency-critical = "#E05F5F"
+
+[osd]
+background       = "#060708"
+background-alpha = 1.0
+text             = "#E6E8E6"
+border           = "#1E2224"
+border-alpha     = 1.0
+fill             = "#A9E34B"
+
+[workspaces]
+style            = "numeric"
+active-color     = "#A9E34B"
+occupied-color   = "#C6CED1"
+empty-color      = "#2A2F31"
+
+[clock]
+format           = "%a %d %b  %H:%M"
+format-alt       = "%H:%M"
+monospace        = true
+uppercase        = true

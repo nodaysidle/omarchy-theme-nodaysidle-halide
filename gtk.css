@@ -1,0 +1,23 @@
+/* nodaysidle Halide — GTK4 (square plate) */
+window.background, .view, listview, gridview, columnview, scrolledwindow, viewport {
+  background-color: #0B0C0D;
+  background-image: none;
+  color: #E6E8E6;
+}
+headerbar, .titlebar {
+  background-color: #0B0C0D;
+  border-bottom: 1px solid #1E2224;
+  color: #E6E8E6;
+  box-shadow: none;
+}
+button { background-color: #0B0C0D; border: 1px solid #2A2F31; color: #E6E8E6; border-radius: 0; }
+button:hover { border-color: #C6CED1; }
+button:active, button:checked { background-color: #16181A; border-color: #A9E34B; color: #A9E34B; }
+entry, spinbutton, searchbar entry { background-color: #060708; border: 1px solid #1E2224; border-radius: 0; color: #E6E8E6; }
+entry:focus, entry:focus-within { border-color: #A9E34B; }
+selection, *:selected { background-color: #1B2124; color: #FFFFFF; }
+link, *:link { color: #6FD3C7; }
+tooltip { background-color: #060708; color: #E6E8E6; border: 1px solid #1E2224; border-radius: 0; }
+scrollbar { background-color: transparent; }
+scrollbar slider { background-color: #2A2F31; border-radius: 0; min-width: 6px; }
+scrollbar slider:hover { background-color: #A9E34B; }

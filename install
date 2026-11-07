@@ -1,0 +1,29 @@
+#!/bin/bash
+# nodaysidle Halide — Installer & Linker
+set -euo pipefail
+
+THEME_SRC="$HOME/dev/nodaysidle/omarchy-theme-nodaysidle-halide"
+TARGET_DIR="$HOME/.config/omarchy/themes/nodaysidle-halide"
+HOOK_DIR="$HOME/.config/omarchy/hooks/theme-set.d"
+[[ -d $THEME_SRC ]] || THEME_SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+mkdir -p "$(dirname "$TARGET_DIR")"
+if [[ "$THEME_SRC" != "$TARGET_DIR" ]]; then
+  rm -rf "$TARGET_DIR"
+  ln -sfn "$THEME_SRC" "$TARGET_DIR"
+  echo "✔ Linked theme: $THEME_SRC -> $TARGET_DIR"
+fi
+
+mkdir -p "$HOOK_DIR"
+if [[ -f "$THEME_SRC/hooks/nodaysidle-halide" ]]; then
+  install -m 755 "$THEME_SRC/hooks/nodaysidle-halide" "$HOOK_DIR/nodaysidle-halide"
+  echo "✔ Hook installed: $HOOK_DIR/nodaysidle-halide"
+fi
+
+CURRENT="$(cat "${XDG_STATE_HOME:-$HOME/.local/state}/omarchy/current/theme.name" 2>/dev/null || echo '')"
+if [[ "$CURRENT" == "nodaysidle-halide" || "$CURRENT" == "Nodaysidle Halide" ]]; then
+  bash "$HOOK_DIR/nodaysidle-halide" "nodaysidle-halide"
+  echo "✔ Halide hook activated"
+else
+  echo "Ready! Apply anytime with: omarchy theme set nodaysidle-halide"
+fi

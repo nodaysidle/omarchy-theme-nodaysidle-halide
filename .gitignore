@@ -1,0 +1,17 @@
+# OS & Editor metadata
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Logs & Temp
+*.log
+tmp/
+.cache/
+
+# Agent local cache
+graft/
+.ship-out/
+.trail/cache/

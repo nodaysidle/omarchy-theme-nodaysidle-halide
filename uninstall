@@ -1,0 +1,22 @@
+#!/bin/bash
+# nodaysidle Halide — Theme Uninstaller
+set -euo pipefail
+
+TARGET_DIR="$HOME/.config/omarchy/themes/nodaysidle-halide"
+HOOK_FILE="$HOME/.config/omarchy/hooks/theme-set.d/nodaysidle-halide"
+
+echo "=== Removing nodaysidle Halide Theme ==="
+
+if [[ -f "$HOOK_FILE" ]]; then
+  echo "Reverting hooks..."
+  bash "$HOOK_FILE" "none" || true
+  rm -f "$HOOK_FILE"
+  echo "✔ Removed hook: $HOOK_FILE"
+fi
+
+if [[ -L "$TARGET_DIR" || -d "$TARGET_DIR" ]]; then
+  rm -rf "$TARGET_DIR"
+  echo "✔ Removed theme link/dir: $TARGET_DIR"
+fi
+
+echo "Done."

@@ -1,0 +1,35 @@
+# nodaysidle Halide — Master Palette (darkroom neutral, single lime signal)
+mode = "dark"
+
+accent = "#A9E34B"
+selection = "#1B2124"
+selection_foreground = "#FFFFFF"
+muted = "#5F6668"
+
+background = "#0B0C0D"
+dark_background = "#060708"
+darker_background = "#030405"
+lighter_background = "#16181A"
+
+foreground = "#E6E8E6"
+dark_foreground = "#5F6668"
+light_foreground = "#9BA3A5"
+bright_foreground = "#FFFFFF"
+
+red = "#E05F5F"
+yellow = "#D9B451"
+orange = "#E08A4B"
+green = "#A9E34B"
+cyan = "#6FD3C7"
+blue = "#7FA6C9"
+magenta = "#C98FB8"
+brown = "#7A6552"
+
+bright_red = "#F07A7A"
+bright_yellow = "#E8C86E"
+bright_green = "#C3F06B"
+bright_cyan = "#8FE3D8"
+bright_blue = "#9BBBD6"
+bright_magenta = "#DCA8CC"
+bright_orange = "#F0A469"
+bright_brown = "#9C8570"
